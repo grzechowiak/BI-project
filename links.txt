@@ -16,3 +16,6 @@ https://data.austintexas.gov/Building-and-Development/Issued-Construction-Permit
 
 Residential Average Monthly kWh and Bills 
 https://data.austintexas.gov/Utilities-and-City-Services/Residential-Average-Monthly-kWh-and-Bills/d9pb-3vh7/data
+
+---Roger---
+Mixed Beverage Gross Reciepts: https://data.texas.gov/Government-and-Taxes/Mixed-Beverage-Gross-Receipts/naix-2893
