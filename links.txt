@@ -1,6 +1,18 @@
+
+---MIKA:---
 2014 Housing Market Analysis Data by Zip Code: https://catalog.data.gov/dataset/2014-housing-market-analysis-data-by-zip-code
 Austin Water - Residential Water Consumption: https://catalog.data.gov/dataset/austin-water-residential-water-consumption
 Food Establishment Inspection Scores: https://catalog.data.gov/dataset/restaurant-inspection-scores
 Real-Time Traffic Incident Reports: https://catalog.data.gov/dataset/traffic-reports
 Traffic Cameras: https://catalog.data.gov/dataset/traffic-cameras-1f299
 
+
+---MARCIN:---
+Commercial Water Consumption
+https://data.austintexas.gov/Utilities-and-City-Services/Austin-Water-Residential-Water-Consumption/sxk7-7k6z
+
+Issued Construction Permits (FILE 433MB) TOO BIG NOT CSV.
+https://data.austintexas.gov/Building-and-Development/Issued-Construction-Permits/3syk-w9eu
+
+Residential Average Monthly kWh and Bills 
+https://data.austintexas.gov/Utilities-and-City-Services/Residential-Average-Monthly-kWh-and-Bills/d9pb-3vh7/data
