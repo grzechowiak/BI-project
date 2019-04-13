@@ -1,2 +1,6 @@
-https://catalog.data.gov/organization/city-of-austin?page=4
+2014 Housing Market Analysis Data by Zip Code: https://catalog.data.gov/dataset/2014-housing-market-analysis-data-by-zip-code
+Austin Water - Residential Water Consumption: https://catalog.data.gov/dataset/austin-water-residential-water-consumption
+Food Establishment Inspection Scores: https://catalog.data.gov/dataset/restaurant-inspection-scores
+Real-Time Traffic Incident Reports: https://catalog.data.gov/dataset/traffic-reports
+Traffic Cameras: https://catalog.data.gov/dataset/traffic-cameras-1f299
 
