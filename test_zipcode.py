@@ -11,11 +11,15 @@ from uszipcode import SearchEngine
 lat = 33.577862
 lon = -101.855164
 search = SearchEngine(simple_zipcode=False)
-result = search.by_coordinates(lat, lon, radius=30, returns=5)
+result = search.by_coordinates(lat, lon, radius=30)
 
+zipcodes = []
 for x in result:
-    print(x.zipcode)
+    zipcodes.append((x.zipcode,x.radius_in_miles))
+
+zipcodes.sort(key=lambda x: x[1])
     
+zipcodes[0][0]    
 
 
 
