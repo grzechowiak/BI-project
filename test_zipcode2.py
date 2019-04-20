@@ -28,6 +28,8 @@ df3 = pd.read_csv(links[2])
 
 #### Real-Time Traffic Incident Reports ####
 df4 = pd.read_csv(links[3])
+import traffic_incidents as tf
+df4 = tf.get(df4)
 
 #### Traffic Cameras #### 
 df5 = pd.read_csv(links[4])
@@ -51,30 +53,6 @@ df9 = pd.read_csv(links[8])
 
 
 
-from uszipcode import SearchEngine
-
-def getzipcode(row):   
-    search = SearchEngine(simple_zipcode=False)
-    result = search.by_coordinates(row['Latitude'],row['Longitude'], radius=30)
-    
-    
-    zipcodes = []
-    for x in result:
-        zipcodes.append((x.zipcode,x.radius_in_miles))
-    
-    zipcodes.sort(key=lambda x: x[1])
-    if len(zipcodes) == 0:
-        return -1
-    else:
-        return zipcodes[0][0]
-
-
-df4['ZipCode'] = df4.apply(getzipcode, axis = 1)
-df4['Latitude'][0].dtype
-    
-    
-    
-    
     
     
     
