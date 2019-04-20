@@ -1,59 +1,59 @@
-Analysis of Data:
-? What questions can these data potentially answer?
+			Analysis of Data:
+What questions can these data potentially answer?
 	Best location in Austin based off of less traffic accidents
 
-? What are the potential valuable data items exists within the data?
+What are the potential valuable data items exists within the data?
 	We found the most valuable data that could help us included latitude, longitude, traffic accidents,
 
-? How might they be applied for direct business application and indirect business
+How might they be applied for direct business application and indirect business
 applications?
 	For direct business application: Insurance company looking for the highest number of crashes within a zipcode
 	Indirect business application: As a person moving to Austin looking to move to an area that has low traffic based on low reported traffic accidents
  
-? What do you suggest as potential usages for different variables within the dataset?
+What do you suggest as potential usages for different variables within the dataset?
 	
 
 
-Data Cleaning:
-? What is the overall quality of the data?
+			Data Cleaning:
+What is the overall quality of the data?
 	
-? What variables contained missing data?
+What variables contained missing data?
 	Variables that contained missing data were the columns 'Latitude' and 'Longitude'.
 
-? What kinds of missing value exists in the dataset and which variables are they related to?
+What kinds of missing value exists in the dataset and which variables are they related to?
 	In our dataset we had values that were zero and they related to Latitude and Longitude coordinates.
 
-? What methods did you use to clean the missing data?
+What methods did you use to clean the missing data?
 	We keep the rows that dont have Latitude and Longitude not equal to zero.
 
 
-Data Merging:
-? What were the common elements between both datasets?
+			Data Merging:
+What were the common elements between both datasets?
 	The common element between the datasets was Zip Codes in Austin, Texas.
 
-? Were there any issues with multilevel measurement in the final dataset?
+Were there any issues with multilevel measurement in the final dataset?
 
 
-? What variables are more valuable combined than being in separate datasets?
+What variables are more valuable combined than being in separate datasets?
 
-? In what ways has the data become more valuable since being merged? i.e. what new
+In what ways has the data become more valuable since being merged? i.e. what new
 business insights can be generated due to the combined datasets rather than the sets being
 separate.
 
 
-Analysis of Visualizations:
-? How well does your visualization adhere to the principles and characteristics of a good
+			Analysis of Visualizations:
+How well does your visualization adhere to the principles and characteristics of a good
 visualization?
-? How well does your visualization adhere to the concept of natural processing? Are there
+How well does your visualization adhere to the concept of natural processing? Are there
 things in your graph that are necessary but do not have a natural processing correlate?
-? Copies of your visualizations.
+Copies of your visualizations.
 
 
-Flow diagram of your project (draw.io would work very well for this):
-? This should illustrate all steps necessary to gather the data to visualizing the data. It should
+			Flow diagram of your project (draw.io would work very well for this):
+This should illustrate all steps necessary to gather the data to visualizing the data. It should
 also illustrate which “files” and “language” are being used at each step.
 
 
 Instructions for code – This section should detail how to run your code.
-? Note, this should be explicit step-by-step instructions, including any variables that might
+Note, this should be explicit step-by-step instructions, including any variables that might
 need to be manipulated.
