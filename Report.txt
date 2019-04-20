@@ -1,13 +1,14 @@
 			Analysis of Data:
 What questions can these data potentially answer?
-	Best location in Austin based off of less traffic accidents
+	Best location in Austin based off of the least amount of traffic accidents
 
 What are the potential valuable data items exists within the data?
-	We found the most valuable data that could help us included latitude, longitude, traffic accidents,
+	We found the most valuable data that could help us included latitude, longitude, zipcode, traffic accidents.
 
 How might they be applied for direct business application and indirect business
 applications?
-	For direct business application: Insurance company looking for the highest number of crashes within a zipcode
+	For direct business application: Insurance company looking for the highest number of crashes within a zipcode or as a local business looking for the most amount of traffic that 
+					 that passes through a given (area based on traffic incidents) to gain more exposure to vehicles that pass by.
 	Indirect business application: As a person moving to Austin looking to move to an area that has low traffic based on low reported traffic accidents
  
 What do you suggest as potential usages for different variables within the dataset?
