@@ -39,7 +39,7 @@ def get(df):
     
     #add column zipcode
     df['ZipCode'] = df.apply(get_zipcode, axis = 1)
-    df = df[['ZipCode', 'Issue Reported']]
+    df = df[['ZipCode', 'Issue Reported', 'Longitude', 'Status Date']]
 
     return df
 
