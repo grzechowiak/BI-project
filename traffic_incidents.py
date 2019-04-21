@@ -33,6 +33,7 @@ def get(df):
     df = df[(df.Date == '2019')]
     df['Month'] = df['Status Date'].str.extract('(\d{2})/\d{2}/\d{4} *')
     df = df[(df.Month == '03')]
+    
     # remove lat=0 long=0
     df = df[(df.Latitude != np.float64(0)) & (df.Longitude != np.float64(0))]
     

@@ -30,7 +30,7 @@ df3 = pd.read_csv(links[2])
 df4 = pd.read_csv(links[3])
 import traffic_incidents as tf
 df4 = tf.get(df4)
-
+df4.to_csv('traffic_incidents.csv')
 #### Traffic Cameras #### 
 df5 = pd.read_csv(links[4])
 
