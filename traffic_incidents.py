@@ -28,11 +28,11 @@ def get(df):
     # keep columns 'Issue Reported', 'Latitude', 'Longitude'
     df = df[['Issue Reported', 'Latitude', 'Longitude', 'Status Date']]
     
-    # keep data for year 2019
-    # keep 2019
+    # keep month = March and Year = 2019
     df['Date'] = df['Status Date'].str.extract('\d{2}/\d{2}/(\d{4}) *')
     df = df[(df.Date == '2019')]
-    
+    df['Month'] = df['Status Date'].str.extract('(\d{2})/\d{2}/\d{4} *')
+    df = df[(df.Month == '03')]
     # remove lat=0 long=0
     df = df[(df.Latitude != np.float64(0)) & (df.Longitude != np.float64(0))]
     
