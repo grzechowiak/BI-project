@@ -17,33 +17,33 @@ links = ['https://data.austintexas.gov/api/views/hcnj-rei3/rows.csv',
 
 ######## DATA FROM THE USA GOVERNMENT ########
 #### 2014 Housing Market Analysis Data by Zip Code #### 
-df1 = pd.read_csv(links[0])
+df1 = pd.read_csv(links[0]) #marcin
 
 #### Austin Water - Residential Water Consumption ####
-df2 = pd.read_csv(links[1])
+df2 = pd.read_csv(links[1])  #marcin
 #USE: Postal Code, Customer Class, Total Gallons
 
 #### Food Establishment Inspection Scores ####
-df3 = pd.read_csv(links[2])
+df3 = pd.read_csv(links[2]) #marcin
 #USE: Zip Code, Score
 
 #### Real-Time Traffic Incident Reports ####
-df4 = pd.read_csv(links[3])
+df4 = pd.read_csv(links[3]) #mika
 #USE: X, Y, Issue, Report, Date
 
 #### Traffic Cameras #### 
-df5 = pd.read_csv(links[4])
+df5 = pd.read_csv(links[4]) #mika
 #USE only location data
 
 ######## DATA FROM AUSTIN TEXAS LOCAL GOVERNMENT ########
 #### Commercial Water Consumption ####
-df6 = pd.read_csv(links[5])
+df6 = pd.read_csv(links[5]) #marcin
 #Postal Code, total_gallons
 
 ######## DATA FROM TEXAS GOVERNMENT ########
 ####Mixed Beverage Gross Reciepts ####
 #Link to data: https://data.texas.gov/Government-and-Taxes/Mixed-Beverage-Gross-Receipts/naix-2893
-df7 = pd.read_csv(links[6])
+df7 = pd.read_csv(links[6]) #roger
 df7.columns
 #Filter by location_city cuz it's for all Texas
 #keep: beer_receipts,liquor_receipts,location_city,location_zip,
