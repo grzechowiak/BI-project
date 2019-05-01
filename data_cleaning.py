@@ -73,5 +73,7 @@ def clean_data(df1,df2,df3,df4):
                                'liquor_receipts', 'total_receipts',
                                'wine_receipts')
     df4.count() #no missing values
+    #unstack?
+    # https://pandas.pydata.org/pandas-docs/stable/user_guide/reshaping.html
     
     return list(df1,df2,df3,df4)
