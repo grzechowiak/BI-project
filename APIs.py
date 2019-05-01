@@ -53,6 +53,20 @@ df7.columns
 
 
 
+## Call file which looking for intersections
+from Intersect_incidents import intersect
+
+
+os.system('Intersect_incidents.py')
+import Intersect_incidents
+
+
+
+
+
+
+
+
 
 
 
