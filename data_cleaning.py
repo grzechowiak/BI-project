@@ -47,9 +47,12 @@ def clean_data(df1,df2,df3,df4):
                         'Irrigation - Residential':'I-R-Tot.Gallons',
                         'Multi-Family':'MF-Tot.Gallons', 'Residential':'R-Tot.Gallons'}, inplace=True)
     #drop customer class
-    df2.to_frame().reset_index(drop=True, inplace=True)
-    df2.drop('Customer Class', axis=1, inplace=True)
-
+    df2 = df2.rename_axis(None, axis=1).reset_index()
+    #replace all NA values by 0 for all the columns. 
+    #It might happen that a zip code does not have a particular type of Customer Class, so it does not
+    # make sense taking other policies such as median or mean.
+    df2.loc[:,'I-MF-Tot.Gallons':'R-Tot.Gallons'] = df2.loc[:,'I-MF-Tot.Gallons':'R-Tot.Gallons'].fillna(0)
+   
     #DF3
     #### Food Establishment Inspection Scores ####
     df3.head()
