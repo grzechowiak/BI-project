@@ -3,17 +3,36 @@
 #DF 1: 
 #### 2014 Housing Market Analysis Data by Zip Code #### 
 
-df1=df1[['Zip Code','Median household income','Non-White, Non-Hispanic or Latino', 'Hispanic or Latino, of any race',
+'''df1=df1[['Zip Code','Median household income','Non-White, Non-Hispanic or Latino', 'Hispanic or Latino, of any race',
          'Unemployment','Median rent','Median home value','Average monthly transportation cost']]
-
+'''
 #Unfortunately, one zip-code is missing. Drop this row.
 df1.count()
-
 #Zip Code has NA, delete NA only if NA is found in column Zip Code
 df1.dropna(subset=['Zip Code'], inplace = True)
 # Change data type 
 df1["Zip Code"] = df1["Zip Code"].astype(int)
 df1.dtypes
+# After droping one Zipcode, some other columns have NA's
+# we don't want to delete them so we input zero in NA
+
+df1[df1['Homes affordable to people earning less than $50,000'].isnull()]
+df1['Homes affordable to people earning less than $50,000'].fillna(0, inplace=True)
+
+df1[df1['Owner units affordable to average retail/service worker'].isnull()]
+df1['Owner units affordable to average retail/service worker'].fillna(0, inplace=True)
+
+df1[df1['Owner units affordable to average teacher'].isnull()]
+df1['Owner units affordable to average teacher'].fillna(0, inplace=True)
+
+df1[df1['Owner units affordable to average tech worker'].isnull()]
+df1['Owner units affordable to average tech worker'].fillna(0, inplace=True)
+
+df1[df1['Owner units affordable to average artist'].isnull()]
+df1['Owner units affordable to average artist'].fillna(0, inplace=True)
+
+df1.count()
+#No more missing values in df1
 
 #DF 2:
 #### Austin Water - Residential Water Consumption ####
@@ -43,6 +62,8 @@ df7=df7[['beer_receipts','liquor_receipts','location_zip','wine_receipts','total
 df7.count() #no missing values
 
 
+
+## MERGING
 
 #MERGE df1 + df2
 #Merge right join. We want everything from df2 and join to it df1
