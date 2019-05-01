@@ -3,6 +3,7 @@
 ########################################
 ########## Imports ##################### 
 import pandas as pd
+from Intersect_incidents import intersect
 
 ########################################
 ########## Getting the data ############
@@ -19,13 +20,14 @@ links = ['https://data.austintexas.gov/api/views/hcnj-rei3/rows.csv',
 #### 2014 Housing Market Analysis Data by Zip Code #### 
 df1 = pd.read_csv(links[0]) #marcin
 
+
 #### Austin Water - Residential Water Consumption ####
 df2 = pd.read_csv(links[1])  #marcin
-#USE: Postal Code, Customer Class, Total Gallons
+#USE: group by (Postal Code, Customer Class) -> create new column sum of Total Gallons for each class
 
 #### Food Establishment Inspection Scores ####
 df3 = pd.read_csv(links[2]) #marcin
-#USE: Zip Code, Score
+#USE: group by Zip Code, and take sum of Score
 
 #### Real-Time Traffic Incident Reports ####
 df4 = pd.read_csv(links[3]) #mika
@@ -48,18 +50,6 @@ df7.columns
 #Filter by location_city cuz it's for all Texas
 #keep: beer_receipts,liquor_receipts,location_city,location_zip,
 #total_receipts,wine_receipts
-
-
-
-
-
-## Call file which looking for intersections
-from Intersect_incidents import intersect
-
-
-os.system('Intersect_incidents.py')
-import Intersect_incidents
-
 
 
 
@@ -109,4 +99,7 @@ df3.count() #Wow, no NA's
 
 #MERGE df1 + df2
 #Merge right join. We want everything from df2 and join to it df1
-pd.merge(df1_2, df3, how='right', left_on=['Zip Code'], right_on=['Postal Code'])
+df_merged = pd.merge(df1_2, df3, how='right', left_on=['Zip Code'], right_on=['Postal Code'])
+
+#get grouped incidents data by zipcodes
+incidents_grouped = intersect(df4)
