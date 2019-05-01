@@ -59,14 +59,19 @@ def clean_data(df1,df2,df3,df4):
     df3.columns
     #Check NAs
     df3.count() #no missing values
+    #group by Zip Code, and take the median of Score
+    df3 = df3.groupby('Zip Code').median().reset_index()
     
     
     #DF5
     ####Mixed Beverage Gross Reciepts ####
-    df4.columns
     #Select only city Austin
-    df4=df4[df4['location_city']=='AUSTIN']
-    df4.groupby('location_zip').size()
+    df4 = df4[df4['location_city']=='AUSTIN']
+    df4.drop('location_city', axis=1,inplace=True)
+    df4_group = df4.groupby('location_zip').sum()
+    df4 = df4_group.reset_index().pivot('location_zip', 'beer_receipts', 
+                               'liquor_receipts', 'total_receipts',
+                               'wine_receipts')
     df4.count() #no missing values
     
     return list(df1,df2,df3,df4)

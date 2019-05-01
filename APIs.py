@@ -23,13 +23,12 @@ df2 = pd.read_csv(links[1])
 
 #### Food Establishment Inspection Scores ####
 df3 = pd.read_csv(links[2], usecols=['Zip Code', 'Score']) 
-#USE: group by Zip Code, and take sum of Score
 
 
 ######## DATA FROM TEXAS GOVERNMENT ########
 ####Mixed Beverage Gross Reciepts ####
 #Link to data: https://data.texas.gov/Government-and-Taxes/Mixed-Beverage-Gross-Receipts/naix-2893
-df4 = pd.read_csv(links[3], usecols=['beer_receipts','liquor_receipts','location_zip','wine_receipts','total_receipts']) 
+df4 = pd.read_csv(links[3], usecols=['location_city', 'beer_receipts','liquor_receipts','location_zip','wine_receipts','total_receipts']) 
 #Filter by location_city cuz it's for all Texas
 #keep: beer_receipts,liquor_receipts,location_city,location_zip,
 #total_receipts,wine_receipts group by zipcode and take totals 
