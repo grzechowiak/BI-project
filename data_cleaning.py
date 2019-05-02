@@ -46,7 +46,8 @@ def clean_data(df1,df2,df3,df4):
     df2.rename(columns={'Irrigation - Multi-Family':'I-MF-Tot.Gallons', 
                         'Irrigation - Residential':'I-R-Tot.Gallons',
                         'Multi-Family':'MF-Tot.Gallons', 'Residential':'R-Tot.Gallons'}, inplace=True)
-    #drop customer class
+    
+    #get rid of name='Customer Class'
     df2 = df2.rename_axis(None, axis=1).reset_index()
     #replace all NA values by 0 for all the columns. 
     #It might happen that a zip code does not have a particular type of Customer Class, so it does not

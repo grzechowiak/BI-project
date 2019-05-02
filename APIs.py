@@ -10,7 +10,7 @@ from data_cleaning import clean_data
 
 def import_data(path_zipcodes):
     ########################################
-    ########## Getting the data ############
+    ########## Getting real time data ############
     links = ['https://data.austintexas.gov/api/views/hcnj-rei3/rows.csv',
              'https://data.austintexas.gov/api/views/sxk7-7k6z/rows.csv',
              'https://data.austintexas.gov/api/views/ecmv-9xxi/rows.csv',
@@ -46,46 +46,30 @@ def import_data(path_zipcodes):
     path_zipcodes = "/Users/mikaelapisanileal/Documents/BI-project/files/Zipcodes/"
     df5 = intersect(df5, path_zipcodes)
     
+    return (df1,df2,df3,df4,df5)
     
-    ##############################################################################
-    ############################ OLD MERGING CODE #######################################
-    #############################################################################
-    
-    
-    ########################################
-    ########## Merging ##################### 
-    #DF1
-    df1.head()
-    #Check NA values
-    df1.count()
-    #Zip Code has NA, delete NA only if NA is found in column Zip Code
-    df1.dropna(subset=['Zip Code'], inplace = True)
-    # Change data type 
-    df1["Zip Code"] = df1["Zip Code"].astype(int)
-    df1.dtypes
-    
-    #DF2
-    df2.head()
-    #Check NA values
-    df2.count()
+
+
+def merge_data(df1,df2,df3,df4, df5):    
     
     #MERGE df1 + df2
     #Merge right join. We want everything from df2 and join to it df1
-    df1_2=pd.merge(df1, df2, how='right', left_on=['Zip Code'], right_on=['Postal Code'])
-    df1_2.count()
+    df_merged=pd.merge(df1, df2, how='right', left_on=['Zip Code'], right_on=['Postal Code'])
+    df_merged.count()
     #We don't need column "Zip Code" from column, we're gonna use Postal Code from df2 
-    df1_2=df1_2.drop(columns=["Zip Code"])
-    len(df1_2.columns) # Check
+    df_merged=df_merged.drop(columns=["Zip Code"])
     
+    #MERGE df1 + df2 + df3
+    #Merge right join. We want everything from df_merged and join to it df3
+    df_merged = pd.merge(df_merged, df3, how='right', left_on=['Postal Code'], right_on=['Zip Code'])
+    df_merged=df_merged.drop(columns=["Postal Code"])
+
+    df_merged = pd.merge(df4, df_merged, how='right', left_on=['location_zip'], right_on=['Zip Code'])
+    df_merged=df_merged.drop(columns=["location_zip"])
     
-    #DF3
-    df3.head()
-    df3.columns
-    #Check NAs
-    df3.count() #Wow, no NA's
+    df_merged = pd.merge(df_merged, df5, how='right', left_on=['Zip Code'], right_on=['zipcode'])
+    df_merged=df_merged.drop(columns=["Zip Code"])
     
-    #MERGE df1 + df2
-    #Merge right join. We want everything from df2 and join to it df1
-    df_merged = pd.merge(df1_2, df3, how='right', left_on=['Zip Code'], right_on=['Postal Code'])
+    return df_merged
     
-    
+
