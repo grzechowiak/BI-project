@@ -1,0 +1,1 @@
+Install this in MAC: brew install spatialindex

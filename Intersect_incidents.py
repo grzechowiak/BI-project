@@ -7,7 +7,8 @@
 # The file can be access here:
 # https://data.austintexas.gov/api/geospatial/ghsj-v65t?method=export&format=Shapefile
 
-def intersect(df4):
+#path_zipcodes: path to the file with zipcodes 
+def intersect(df, path_zipcodes):
     # Import libraries:
     # PART A: Converte csv file into shapefile
     from geopandas import GeoDataFrame
@@ -17,15 +18,12 @@ def intersect(df4):
     import geopandas as gpd
     import os
     
-    #Shapefile with zipcodes were downloaded and read from local computer:
-    path='C:\\Users\\grzechu\\Desktop\\TTU\\ProjectsSpringGIT\\BI_Project\\BI-project\\files\\Zipcodes\\'
     zipcodes='zips.shp'
     
-    
-    
+
     # PART A
     #Filter data 
-    df=df4[['Issue Reported','Location','Latitude','Longitude']]
+    df=df[['Issue Reported','Latitude','Longitude']]
     
     #Convert points (csv file) into shapefile (just changin format)
     geometry = [Point(xy) for xy in zip(df.Longitude, df.Latitude)]
@@ -36,7 +34,7 @@ def intersect(df4):
     
     # PART B
     #Find intersection between points (accidents) and poligons (zipcodes)
-    gdfLeft = gpd.read_file(os.path.join(path,zipcodes))
+    gdfLeft = gpd.read_file(os.path.join(path_zipcodes,zipcodes))
     gdfRight = gdf
     
     gdfJoined = gpd.sjoin(gdfLeft, gdfRight, how="left", op='intersects')

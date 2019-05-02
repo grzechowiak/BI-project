@@ -1,3 +1,6 @@
 uszipcode
 pandas
 numpy
+geopandas
+shapely.geometry
+rtree

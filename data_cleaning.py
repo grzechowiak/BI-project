@@ -68,12 +68,8 @@ def clean_data(df1,df2,df3,df4):
     #Select only city Austin
     df4 = df4[df4['location_city']=='AUSTIN']
     df4.drop('location_city', axis=1,inplace=True)
-    df4_group = df4.groupby('location_zip').sum()
-    df4 = df4_group.reset_index().pivot('location_zip', 'beer_receipts', 
-                               'liquor_receipts', 'total_receipts',
-                               'wine_receipts')
+    df4 = df4.groupby('location_zip').sum().reset_index()
+
     df4.count() #no missing values
-    #unstack?
-    # https://pandas.pydata.org/pandas-docs/stable/user_guide/reshaping.html
     
-    return list(df1,df2,df3,df4)
+    return (df1,df2,df3,df4)
