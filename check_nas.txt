@@ -1,0 +1,11 @@
+missing_data = data.isnull() #localize NULLs
+missing_data.head(5)
+# Go thru missing_data and print if TURE
+print("Missing vales were found in columns:")
+print("")
+for column in missing_data.columns.values.tolist():
+    if True in missing_data[column].values:
+        print(column)
+        print (missing_data[column].value_counts())
+        print("")
+# I found 11 NA values in column 'damage_done'
