@@ -48,6 +48,18 @@ def import_data(path_zipcodes):
     
     return (df1,df2,df3,df4,df5)
     
+def check_fix_na(data):
+    missing_data = data.isnull() #localize NULLs
+    missing_data.head(5)
+    # Go thru missing_data and print if TURE
+    print("Missing values were found in columns:\n")
+    for column in missing_data.columns.values.tolist():
+        if True in missing_data[column].values:
+            print(column)
+            print(missing_data[column].value_counts())
+            print("")
+    data.loc[:,'beer_receipts':'CAR/TRAFFIC_ACC'] = data.loc[:,'beer_receipts':'CAR/TRAFFIC_ACC'].fillna(0)
+    return data
 
 
 def merge_data(df1,df2,df3,df4, df5):    
@@ -70,6 +82,8 @@ def merge_data(df1,df2,df3,df4, df5):
     df_merged = pd.merge(df_merged, df5, how='right', left_on=['Zip Code'], right_on=['zipcode'])
     df_merged=df_merged.drop(columns=["Zip Code"])
     
-    return df_merged
+    df_merged = check_fix_na(df_merged)
     
+    return df_merged
 
+    
