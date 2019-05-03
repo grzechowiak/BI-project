@@ -7,6 +7,11 @@
 # The file can be access here:
 # https://data.austintexas.gov/api/geospatial/ghsj-v65t?method=export&format=Shapefile
 
+import logging
+
+logging.basicConfig(level=logging.INFO)
+logging=logging.getLogger()
+
 # Import libraries:
 # PART A: Converte csv file into shapefile
 from geopandas import GeoDataFrame
@@ -23,7 +28,8 @@ warnings.filterwarnings("ignore")
 
 #path_zipcodes: path to the file with zipcodes 
 def intersect(df, path_zipcodes):
-
+    logging.info("Now CSV 5, we need to intersect accidents with zip-codes")
+    
     zipcodes='zips.shp'
     
 
@@ -57,6 +63,6 @@ def intersect(df, path_zipcodes):
     # Select columns
     Incidents=gdfJoined[['zipcode','Issue Reported']]
     
-    
+    logging.info("Intersection succes!")
     
     return Incidents

@@ -5,7 +5,7 @@ logging=logging.getLogger()
 
 def clean_data(df1,df2,df3,df4):
 
-
+    logging.info("Let's do some cleaning")
     #DF 1: 
     #### 2014 Housing Market Analysis Data by Zip Code #### 
     #Unfortunately, one zip-code is missing. Drop this row.
@@ -34,7 +34,7 @@ def clean_data(df1,df2,df3,df4):
     
     df1.count()
     #No more missing values in df1
-    logging.info("cleaned 1")
+    logging.info("CSV 1 is cleaned")
     #DF 2:
     #### Austin Water - Residential Water Consumption ####
     df2.head()
@@ -57,7 +57,7 @@ def clean_data(df1,df2,df3,df4):
     # make sense taking other policies such as median or mean.
     df2.loc[:,'I-MF-Tot.Gallons':'R-Tot.Gallons'] = df2.loc[:,'I-MF-Tot.Gallons':'R-Tot.Gallons'].fillna(0)
    
-    logging.info("cleaned 2")
+    logging.info("CSV 2 is cleaned")
     #DF3
     #### Food Establishment Inspection Scores ####
     df3.head()
@@ -67,7 +67,7 @@ def clean_data(df1,df2,df3,df4):
     #group by Zip Code, and take the median of Score
     df3 = df3.groupby('Zip Code').median().reset_index()
     
-    logging.info("cleaned 3")
+    logging.info("CSV 3 is cleaned")
     #DF4
     ####Mixed Beverage Gross Reciepts ####
     #Select only city Austin
@@ -77,12 +77,13 @@ def clean_data(df1,df2,df3,df4):
 
     df4.count() #no missing values
     
-    logging.info("cleaned 4")
+    logging.info("CSV 4 is cleaned")
     
     return (df1,df2,df3,df4)
 
 
 def clean_df5(Incidents):
+    logging.info("Now, we clean CSV5")
     # Group by (zipcode and type of incident). 
     # Take the count of how many incidents for each zipcode are for each type
     Incidents=Incidents.groupby(['zipcode','Issue Reported']).size().reset_index()
@@ -139,4 +140,25 @@ def clean_df5(Incidents):
     Incidents = Incidents.rename_axis(None, axis=1).reset_index()
     Incidents['zipcode'] = Incidents['zipcode'].astype(int)
     
+    logging.info("CSV 5 cleaned!")
     return Incidents
+
+
+def fill_nas(data):
+    logging.info("Dealing with NA values")
+    data.loc[:,'beer_receipts':'CAR/TRAFFIC_ACC'] = data.loc[:,'beer_receipts':'CAR/TRAFFIC_ACC'].fillna(0)
+    logging.info("NA vales filled by zeros!")
+    
+    return data
+    
+def check_nas(data):
+    logging.info("Let's check if there are any column with NA values")
+    missing_data = data.isnull() #localize NULLs
+    missing_data.head(5)
+    # Go thru missing_data and print if TURE
+    print("Missing values were found in columns:\n")
+    for column in missing_data.columns.values.tolist():
+        if True in missing_data[column].values:
+            print(column)
+            print(missing_data[column].value_counts())
+            print("")

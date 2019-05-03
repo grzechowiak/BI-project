@@ -3,8 +3,6 @@
 ########################################
 ########## Imports ##################### 
 import pandas as pd
-from Intersect_incidents import intersect
-from data_cleaning import clean_data
 
 import warnings
 warnings.filterwarnings("ignore")
@@ -16,21 +14,8 @@ logging=logging.getLogger()
 
 
 
-def check_fix_na(data):
-    missing_data = data.isnull() #localize NULLs
-    missing_data.head(5)
-    # Go thru missing_data and print if TURE
-    print("Missing values were found in columns:\n")
-    for column in missing_data.columns.values.tolist():
-        if True in missing_data[column].values:
-            print(column)
-            print(missing_data[column].value_counts())
-            print("")
-    data.loc[:,'beer_receipts':'CAR/TRAFFIC_ACC'] = data.loc[:,'beer_receipts':'CAR/TRAFFIC_ACC'].fillna(0)
-    return data
-
-
 def merge_data(df1,df2,df3,df4, df5):    
+    logging.info("Merging CSV1, CSV2, CSV3, CSV4, CSV5 together")
     
     #MERGE df1 + df2
     #Merge right join. We want everything from df2 and join to it df1
@@ -54,6 +39,8 @@ def merge_data(df1,df2,df3,df4, df5):
     df_merged = pd.merge(df_merged, df5, how='right', left_on=['Zip Code'], right_on=['zipcode'])
     df_merged=df_merged.drop(columns=["Zip Code"])
     logging.info("Merged 1,2,4 and 5")
+    
+    logging.info("All merged!")
 
     
     return df_merged
@@ -69,16 +56,19 @@ def import_process_data():
     
     ######## DATA FROM THE USA GOVERNMENT ########
     #### 2014 Housing Market Analysis Data by Zip Code #### 
+    logging.info("Please wait, we are downloading CSV1")
     df1 = pd.read_csv(links[0]) 
-    logging.info("loaded 1")
+    logging.info("Ok, CSV 1 loaded")
     
     #### Austin Water - Residential Water Consumption ####
+    logging.info("Please wait, we are downloading CSV2")
     df2 = pd.read_csv(links[1])
     logging.info("loaded 2")
     
     #### Food Establishment Inspection Scores ####
+    logging.info("Please wait, we are downloading CSV3")
     df3 = pd.read_csv(links[2], usecols=['Zip Code', 'Score']) 
-    logging.info("loaded 3")
+    logging.info("Ok, CSV 3 loaded")
     
     ######## DATA FROM TEXAS GOVERNMENT ########
     ####Mixed Beverage Gross Reciepts ####
@@ -87,13 +77,15 @@ def import_process_data():
     #Filter by location_city cuz it's for all Texas
     #keep: beer_receipts,liquor_receipts,location_city,location_zip,
     #total_receipts,wine_receipts group by zipcode and take totals 
-    logging.info("loaded 4")
+    logging.info("Please wait, we are downloading CSV4")
+    logging.info("Ok, CSV 4 loaded")
     ## A FUNCTION ##
     #Start funcion which clean the data.
     
     #### Real-Time Traffic Incident Reports ####
+    logging.info("Please wait, we are downloading CSV5")
     df5 = pd.read_csv(links[4], usecols=['Issue Reported', 'Latitude', 'Longitude']) 
-    logging.info("loaded 5")
+    logging.info("Ok, CSV 5 loaded")
     return (df1,df2,df3,df4,df5)
     
     
