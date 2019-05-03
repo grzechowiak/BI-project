@@ -6,6 +6,15 @@ import pandas as pd
 from Intersect_incidents import intersect
 from data_cleaning import clean_data
 
+import warnings
+warnings.filterwarnings("ignore")
+
+import logging
+
+logging.basicConfig(level=logging.INFO)
+logging=logging.getLogger()
+
+
 
 def check_fix_na(data):
     missing_data = data.isnull() #localize NULLs
@@ -29,23 +38,27 @@ def merge_data(df1,df2,df3,df4, df5):
     df_merged.count()
     #We don't need column "Zip Code" from column, we're gonna use Postal Code from df2 
     df_merged=df_merged.drop(columns=["Zip Code"])
+    logging.info("Merged 1 and 2")
     
     #MERGE df1 + df2 + df3
     #Merge right join. We want everything from df_merged and join to it df3
     df_merged = pd.merge(df_merged, df3, how='right', left_on=['Postal Code'], right_on=['Zip Code'])
     df_merged=df_merged.drop(columns=["Postal Code"])
+    logging.info("Merged 1,2 and 3")
 
     df_merged = pd.merge(df4, df_merged, how='right', left_on=['location_zip'], right_on=['Zip Code'])
     df_merged=df_merged.drop(columns=["location_zip"])
+    logging.info("Merged 1,2,3 and 4")
+    
     
     df_merged = pd.merge(df_merged, df5, how='right', left_on=['Zip Code'], right_on=['zipcode'])
     df_merged=df_merged.drop(columns=["Zip Code"])
-    
-    df_merged = check_fix_na(df_merged)
+    logging.info("Merged 1,2,4 and 5")
+
     
     return df_merged
 
-def import_process_data(path_zipcodes):
+def import_process_data():
     ########################################
     ########## Getting real time data ############
     links = ['https://data.austintexas.gov/api/views/hcnj-rei3/rows.csv',
@@ -57,13 +70,15 @@ def import_process_data(path_zipcodes):
     ######## DATA FROM THE USA GOVERNMENT ########
     #### 2014 Housing Market Analysis Data by Zip Code #### 
     df1 = pd.read_csv(links[0]) 
+    logging.info("loaded 1")
     
     #### Austin Water - Residential Water Consumption ####
     df2 = pd.read_csv(links[1])
+    logging.info("loaded 2")
     
     #### Food Establishment Inspection Scores ####
     df3 = pd.read_csv(links[2], usecols=['Zip Code', 'Score']) 
-    
+    logging.info("loaded 3")
     
     ######## DATA FROM TEXAS GOVERNMENT ########
     ####Mixed Beverage Gross Reciepts ####
@@ -72,19 +87,15 @@ def import_process_data(path_zipcodes):
     #Filter by location_city cuz it's for all Texas
     #keep: beer_receipts,liquor_receipts,location_city,location_zip,
     #total_receipts,wine_receipts group by zipcode and take totals 
-    
-    
-    (df1,df2,df3,df4) = clean_data(df1,df2,df3,df4)
+    logging.info("loaded 4")
+    ## A FUNCTION ##
+    #Start funcion which clean the data.
     
     #### Real-Time Traffic Incident Reports ####
     df5 = pd.read_csv(links[4], usecols=['Issue Reported', 'Latitude', 'Longitude']) 
+    logging.info("loaded 5")
+    return (df1,df2,df3,df4,df5)
     
-    #get grouped incidents data by zipcodes
-    df5 = intersect(df5, path_zipcodes)
-    
-    merge=merge_data(df1,df2,df3,df4, df5)
-    
-    return merge
     
 
 
