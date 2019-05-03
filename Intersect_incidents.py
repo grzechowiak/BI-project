@@ -7,6 +7,9 @@
 # The file can be access here:
 # https://data.austintexas.gov/api/geospatial/ghsj-v65t?method=export&format=Shapefile
 
+import warnings
+warnings.filterwarnings("ignore")
+
 import logging
 
 logging.basicConfig(level=logging.INFO)
@@ -20,9 +23,7 @@ from shapely.geometry import Point
 # PART B: Find intersection between shapefiles
 import geopandas as gpd
 import os
-    
-import warnings
-warnings.filterwarnings("ignore")
+
 
 
 
