@@ -1,7 +1,4 @@
-# Project
 
-########################################
-########## Imports ##################### 
 import pandas as pd
 
 import warnings
@@ -12,6 +9,51 @@ import logging
 logging.basicConfig(level=logging.INFO)
 logging=logging.getLogger()
 
+
+
+
+def import_process_data():
+    ########################################
+    ########## Getting the data ############
+    links = ['https://data.austintexas.gov/api/views/hcnj-rei3/rows.csv',
+             'https://data.austintexas.gov/api/views/sxk7-7k6z/rows.csv',
+             'https://data.austintexas.gov/api/views/ecmv-9xxi/rows.csv',
+             'https://data.texas.gov/resource/naix-2893.csv',
+             'https://data.austintexas.gov/api/views/dx9v-zd7x/rows.csv']
+    
+    ######## DATA FROM THE USA GOVERNMENT ########
+    #### 2014 Housing Market Analysis Data by Zip Code #### 
+    logging.info("Please wait, we are downloading CSV1")
+    df1 = pd.read_csv(links[0]) 
+    logging.info("Ok, CSV 1 loaded")
+    
+    #### Austin Water - Residential Water Consumption ####
+    logging.info("Please wait, we are downloading CSV2")
+    df2 = pd.read_csv(links[1])
+    logging.info("OK, CSV 2 loaded")
+    
+    #### Food Establishment Inspection Scores ####
+    logging.info("Please wait, we are downloading CSV3")
+    df3 = pd.read_csv(links[2], usecols=['Zip Code', 'Score']) 
+    logging.info("Ok, CSV 3 loaded")
+    
+    ######## DATA FROM TEXAS GOVERNMENT ########
+    ####Mixed Beverage Gross Reciepts ####
+    #Link to data: https://data.texas.gov/Government-and-Taxes/Mixed-Beverage-Gross-Receipts/naix-2893
+    df4 = pd.read_csv(links[3], usecols=['location_city', 'beer_receipts','liquor_receipts','location_zip','wine_receipts','total_receipts']) 
+    #Filter by location_city cuz it's for all Texas
+    #keep: beer_receipts,liquor_receipts,location_city,location_zip,
+    #total_receipts,wine_receipts group by zipcode and take totals 
+    logging.info("Please wait, we are downloading CSV4")
+    logging.info("Ok, CSV 4 loaded")
+    ## A FUNCTION ##
+    #Start funcion which clean the data.
+    
+    #### Real-Time Traffic Incident Reports ####
+    logging.info("Please wait, we are downloading CSV5")
+    df5 = pd.read_csv(links[4], usecols=['Issue Reported', 'Latitude', 'Longitude']) 
+    logging.info("Ok, CSV 5 loaded")
+    return (df1,df2,df3,df4,df5)
 
 
 def merge_data(df1,df2,df3,df4, df5):    
@@ -44,51 +86,3 @@ def merge_data(df1,df2,df3,df4, df5):
 
     
     return df_merged
-
-def import_process_data():
-    ########################################
-    ########## Getting real time data ############
-    links = ['https://data.austintexas.gov/api/views/hcnj-rei3/rows.csv',
-             'https://data.austintexas.gov/api/views/sxk7-7k6z/rows.csv',
-             'https://data.austintexas.gov/api/views/ecmv-9xxi/rows.csv',
-             'https://data.texas.gov/resource/naix-2893.csv',
-             'https://data.austintexas.gov/api/views/dx9v-zd7x/rows.csv']
-    
-    ######## DATA FROM THE USA GOVERNMENT ########
-    #### 2014 Housing Market Analysis Data by Zip Code #### 
-    logging.info("Please wait, we are downloading CSV1")
-    df1 = pd.read_csv(links[0]) 
-    logging.info("Ok, CSV 1 loaded")
-    
-    #### Austin Water - Residential Water Consumption ####
-    logging.info("Please wait, we are downloading CSV2")
-    df2 = pd.read_csv(links[1])
-    logging.info("loaded 2")
-    
-    #### Food Establishment Inspection Scores ####
-    logging.info("Please wait, we are downloading CSV3")
-    df3 = pd.read_csv(links[2], usecols=['Zip Code', 'Score']) 
-    logging.info("Ok, CSV 3 loaded")
-    
-    ######## DATA FROM TEXAS GOVERNMENT ########
-    ####Mixed Beverage Gross Reciepts ####
-    #Link to data: https://data.texas.gov/Government-and-Taxes/Mixed-Beverage-Gross-Receipts/naix-2893
-    df4 = pd.read_csv(links[3], usecols=['location_city', 'beer_receipts','liquor_receipts','location_zip','wine_receipts','total_receipts']) 
-    #Filter by location_city cuz it's for all Texas
-    #keep: beer_receipts,liquor_receipts,location_city,location_zip,
-    #total_receipts,wine_receipts group by zipcode and take totals 
-    logging.info("Please wait, we are downloading CSV4")
-    logging.info("Ok, CSV 4 loaded")
-    ## A FUNCTION ##
-    #Start funcion which clean the data.
-    
-    #### Real-Time Traffic Incident Reports ####
-    logging.info("Please wait, we are downloading CSV5")
-    df5 = pd.read_csv(links[4], usecols=['Issue Reported', 'Latitude', 'Longitude']) 
-    logging.info("Ok, CSV 5 loaded")
-    return (df1,df2,df3,df4,df5)
-    
-    
-
-
-    

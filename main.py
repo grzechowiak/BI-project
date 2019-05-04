@@ -15,6 +15,8 @@ import logging
 logging.basicConfig(level=logging.INFO)
 logging=logging.getLogger()
 
+
+
 def main():
     path_zip=input('Enter the path to the folder called Zipcodes (inside folder: files): ')
     output= input('Enter where you wanna save a new file: ')
@@ -45,6 +47,6 @@ def main():
     final_df.to_csv(output + 'final_data.csv')
     logging.info("Done! Your file is ready and saved in your output!")
     
-    input("Press enter to exit ;)")
+    input("Press enter to exit :)")
 
 main()
