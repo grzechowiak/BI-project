@@ -3,7 +3,6 @@
 <!-- build 20191.19.0417.1429                               -->
 <workbook original-version='18.1' source-build='2019.1.3 (20191.19.0417.1429)' source-platform='win' version='18.1' xmlns:user='http://www.tableausoftware.com/xml/user'>
   <document-format-change-manifest>
-    <AutoCreateAndUpdateDSDPhoneLayouts />
     <SheetIdentifierTracking />
     <WindowsPersistSimpleIdentifiers />
   </document-format-change-manifest>
@@ -973,30 +972,6 @@
       <simple-id uuid='{38BDF05B-23E2-4D0A-9462-66D77469DAC1}' />
     </worksheet>
   </worksheets>
-  <dashboards>
-    <dashboard name='Dashboard 1'>
-      <style />
-      <size maxheight='800' maxwidth='1000' minheight='800' minwidth='1000' />
-      <zones />
-      <devicelayouts>
-        <devicelayout auto-generated='true' name='Phone'>
-          <size maxheight='700' minheight='700' sizing-mode='vscroll' />
-          <zones>
-            <zone h='100000' id='9' type='layout-basic' w='100000' x='0' y='0'>
-              <zone h='98000' id='10' param='vert' type='layout-flow' w='98400' x='800' y='1000' />
-              <zone-style>
-                <format attr='border-color' value='#000000' />
-                <format attr='border-style' value='none' />
-                <format attr='border-width' value='0' />
-                <format attr='margin' value='8' />
-              </zone-style>
-            </zone>
-          </zones>
-        </devicelayout>
-      </devicelayouts>
-      <simple-id uuid='{01B9CD77-3CE6-4A44-BF47-916B938D645C}' />
-    </dashboard>
-  </dashboards>
   <windows source-height='30'>
     <window class='worksheet' maximized='true' name='Number of Alcohol sold by Zipcode'>
       <cards>
@@ -1025,11 +1000,6 @@
         </edge>
       </cards>
       <simple-id uuid='{5ED27C70-6072-4ED1-81D3-3ADE6C7AC26C}' />
-    </window>
-    <window class='dashboard' name='Dashboard 1'>
-      <viewpoints />
-      <active id='-1' />
-      <simple-id uuid='{E0C866F4-B657-4CD0-B89B-4894863E8601}' />
     </window>
   </windows>
   <thumbnails>
