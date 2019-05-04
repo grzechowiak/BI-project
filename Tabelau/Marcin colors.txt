@@ -1,0 +1,9 @@
+IF SUM([Total Receipts])<1 THEN 'Zero'
+ELSEIF SUM([Total Receipts])>=4000 AND SUM([Total Receipts])<25000 THEN 'Below 25000'
+ELSEIF SUM([Total Receipts])>=26000 AND SUM([Total Receipts])<100000 THEN 'Between 25000 - 100000'
+ELSEIF SUM([Total Receipts])>=100001 AND SUM([Total Receipts])< 120000 THEN 'Between 100001-120000'
+ELSEIF SUM([Total Receipts])>=120001 AND SUM([Total Receipts])< 400000 THEN 'Between 120001-400000'
+ELSEIF SUM([Total Receipts])>=500000 AND SUM([Total Receipts])< 700000 THEN 'Between 500000-700000'
+ELSEIF SUM([Total Receipts])>=710000 AND SUM([Total Receipts])< 800000 THEN 'Between 500000-700000'
+ELSE '1981024'
+END
