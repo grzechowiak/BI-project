@@ -32,7 +32,8 @@ def intersect(df, path_zipcodes):
     
     zipcodes='zips.shp'
     
-
+    #df=df5
+    #path_zipcodes='C:\\Users\\grzechu\\Desktop\\TTU\\ProjectsSpringGIT\\BI_Project\\BI-project\\files\\Zipcodes\\'
     # PART A
     #Filter data 
     df=df[['Issue Reported','Latitude','Longitude']]

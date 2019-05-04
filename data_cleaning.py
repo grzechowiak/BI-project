@@ -82,7 +82,6 @@ def clean_data(df1,df2,df3,df4):
     
     return (df1,df2,df3,df4)
 
-
 def clean_df5(Incidents):
     logging.info("Now, we clean CSV5")
     # Group by (zipcode and type of incident). 
@@ -96,7 +95,7 @@ def clean_df5(Incidents):
         # COLLISION_ACC -> 'COLLISION', 'COLLISION/PRIVATE PROPERTY', 'COLLISN / FTSRA','COLLISN/ LVNG SCN', 'AUTO/ PED'
         # OTHER_ACC -> 'BOAT ACCIDENT', 'LOOSE LIVESTOCK', 'N / HZRD TRFC VIOL',  'HIGH WATER', 'ICY ROADWAY'
         # CAR/TRAFFIC_ACC -> 'TRFC HAZD/ DEBRIS', 'VEHICLE FIRE', 'Crash Service', 'Traffic Hazard', 'Traffic Impediment','zSTALLED VEHICLE', 'BLOCKED DRIV/ HWY'
-    
+    '''
     #check categories
     categories = ['AUTO/ PED', 'BLOCKED DRIV/ HWY', 'BOAT ACCIDENT', 'COLLISION',
        'COLLISION WITH INJURY', 'COLLISION/PRIVATE PROPERTY',
@@ -110,10 +109,10 @@ def clean_df5(Incidents):
     check = Incidents.columns.all() in categories
     if not check:
         logging.warning("categories have changed. Please check the code to group a new category.")
-    
+    '''
     Incidents.loc[:,'AUTO/ PED':'zSTALLED VEHICLE'] = Incidents.loc[:,'AUTO/ PED':'zSTALLED VEHICLE'].fillna(0)
     
-    #create FATAL/INJURY_ACC column and drop the smaller categories
+    '''#create FATAL/INJURY_ACC column and drop the smaller categories
     Incidents['FATAL/INJURY_ACC'] = Incidents['FLEET ACC/ FATAL'] + Incidents['TRAFFIC FATALITY']
     Incidents['COLLISION WITH INJURY'] + Incidents['Crash Urgent'] + Incidents['FLEET ACC/ INJURY']
     Incidents.drop(['FLEET ACC/ FATAL', 'TRAFFIC FATALITY', 'COLLISION WITH INJURY', 
@@ -136,10 +135,11 @@ def clean_df5(Incidents):
     + Incidents['Crash Service'] + Incidents['Traffic Hazard'] + Incidents['Traffic Impediment'] 
     + Incidents['zSTALLED VEHICLE'] + Incidents['BLOCKED DRIV/ HWY']
     Incidents.drop(['TRFC HAZD/ DEBRIS', 'VEHICLE FIRE', 'Crash Service', 'Traffic Hazard', 'Traffic Impediment','zSTALLED VEHICLE', 'BLOCKED DRIV/ HWY'], axis=1, inplace=True)
-    
+    '''
     #get rid of name='Issue Reported'
     Incidents = Incidents.rename_axis(None, axis=1).reset_index()
     Incidents['zipcode'] = Incidents['zipcode'].astype(int)
+    
     
     logging.info("CSV 5 cleaned!")
     return Incidents
@@ -147,7 +147,7 @@ def clean_df5(Incidents):
 
 def fill_nas(data):
     logging.info("Dealing with NA values")
-    data.loc[:,'beer_receipts':'CAR/TRAFFIC_ACC'] = data.loc[:,'beer_receipts':'CAR/TRAFFIC_ACC'].fillna(0)
+    data.loc[:,'beer_receipts':'zSTALLED VEHICLE'] = data.loc[:,'beer_receipts':'zSTALLED VEHICLE'].fillna(0)
     logging.info("NA vales filled by zeros!")
     
     return data
