@@ -1,12 +1,24 @@
+################# Functions descriptions #################
+##########################################################
 # Here we are looking for intersection between point (incidents) and poligons 
 # (area, which is zip-codes)
-
-#Note: the process of looking for intersection is based on shapefile. 
+# Note: the process of looking for intersection is based on shapefile. 
 # For this reason a shapefile with zipcodes where donwladed from:
 # https://data.austintexas.gov/Locations-and-Maps/Zipcodes/ghsj-v65t 
 # The file can be access here:
 # https://data.austintexas.gov/api/geospatial/ghsj-v65t?method=export&format=Shapefile
+# What function does is: 
+# a) transform a csv file (number 5 accidents) which contains Longitude and Latitude 
+#    of every single accident in Austin into poligon object (so the intersection
+#    later can be found easier).
+# b) read a poligon (shapefile) with zip-codes from the file.
+# c) Intersect two poligons
+# d) as a result we assign to every accident a zip-code, where the accident
+#    occured. Rest of the work is done in the Function 4. Where accidents are
+#    grouped.
 
+
+#################################### Imports #################################
 import warnings
 warnings.filterwarnings("ignore")
 
@@ -14,27 +26,26 @@ import logging
 logging.basicConfig(level=logging.INFO)
 logging=logging.getLogger()
 
-# Import libraries:
-# PART A: Converte csv file into shapefile
+
+# PART I: Converte csv file into shapefile
 from geopandas import GeoDataFrame
 from shapely.geometry import Point
     
-# PART B: Find intersection between shapefiles
+# PART II: Find intersection between shapefiles
 import geopandas as gpd
 import os
 
 
 
-
-#path_zipcodes: path to the file with zipcodes 
+############################ Function 3 #######################################       
 def intersect(df, path_zipcodes):
     logging.info("Now CSV 5, we need to intersect accidents with zip-codes")
     
-    zipcodes='zips.shp'
     
-    #df=df5
-    #path_zipcodes='C:\\Users\\grzechu\\Desktop\\TTU\\ProjectsSpringGIT\\BI_Project\\BI-project\\files\\Zipcodes\\'
-    # PART A
+    #PART I
+    #path_zipcodes: path to the file with zipcodes 
+    zipcodes='zips.shp'
+
     #Filter data 
     df=df[['Issue Reported','Latitude','Longitude']]
     
@@ -45,14 +56,15 @@ def intersect(df, path_zipcodes):
     gdf = GeoDataFrame(df, crs=crs, geometry=geometry)
     
     
-    # PART B
+    # PART II
     #Find intersection between points (accidents) and poligons (zipcodes)
     gdfLeft = gpd.read_file(os.path.join(path_zipcodes,zipcodes))
     gdfRight = gdf
-    
+    #Join the data
     gdfJoined = gpd.sjoin(gdfLeft, gdfRight, how="left", op='intersects')
     
     
+    # PART III
     ## CHECK (uncommend if needed)
     # In order to check if process went correct. Below code was used. 
     # Random sample of 2000 points were chosen, save into csv file and 
@@ -61,7 +73,8 @@ def intersect(df, path_zipcodes):
     test_random.to_csv(path+'random.csv',sep=',')'''
     
     
-    # Select columns
+    # PART IV
+    # Select what columns needed
     Incidents=gdfJoined[['zipcode','Issue Reported']]
     
     logging.info("Intersection succes!")
