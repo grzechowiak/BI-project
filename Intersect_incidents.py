@@ -41,7 +41,6 @@ import os
 def intersect(df, path_zipcodes):
     logging.info("Now CSV 5, we need to intersect accidents with zip-codes")
     
-    
     #PART I
     #path_zipcodes: path to the file with zipcodes 
     zipcodes='zips.shp'
