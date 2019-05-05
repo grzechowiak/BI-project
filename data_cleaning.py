@@ -90,52 +90,10 @@ def clean_df5(Incidents):
     Incidents.rename(columns={0:'Total incidents'}, inplace=True)
     Incidents = Incidents.pivot('zipcode', 'Issue Reported', 'Total incidents').reset_index()
     #create new columns, which are summation for each general category
-    #CATEGORIES:
-        # FATAL/INJURY_ACC -> 'FLEET ACC/ FATAL', 'TRAFFIC FATALITY', 'COLLISION WITH INJURY', 'Crash Urgent', 'FLEET ACC/ INJURY'
-        # COLLISION_ACC -> 'COLLISION', 'COLLISION/PRIVATE PROPERTY', 'COLLISN / FTSRA','COLLISN/ LVNG SCN', 'AUTO/ PED'
-        # OTHER_ACC -> 'BOAT ACCIDENT', 'LOOSE LIVESTOCK', 'N / HZRD TRFC VIOL',  'HIGH WATER', 'ICY ROADWAY'
-        # CAR/TRAFFIC_ACC -> 'TRFC HAZD/ DEBRIS', 'VEHICLE FIRE', 'Crash Service', 'Traffic Hazard', 'Traffic Impediment','zSTALLED VEHICLE', 'BLOCKED DRIV/ HWY'
-    '''
-    #check categories
-    categories = ['AUTO/ PED', 'BLOCKED DRIV/ HWY', 'BOAT ACCIDENT', 'COLLISION',
-       'COLLISION WITH INJURY', 'COLLISION/PRIVATE PROPERTY',
-       'COLLISN / FTSRA', 'COLLISN/ LVNG SCN', 'Crash Service', 'Crash Urgent',
-       'FLEET ACC/ FATAL', 'FLEET ACC/ INJURY', 'HIGH WATER', 'ICY ROADWAY',
-       'LOOSE LIVESTOCK', 'N / HZRD TRFC VIOL', 'TRAFFIC FATALITY',
-       'TRFC HAZD/ DEBRIS', 'Traffic Hazard', 'Traffic Impediment',
-       'VEHICLE FIRE', 'zSTALLED VEHICLE']
-    
-    #check if a category was added at the Austin website
-    check = Incidents.columns.all() in categories
-    if not check:
-        logging.warning("categories have changed. Please check the code to group a new category.")
-    '''
+
     Incidents.loc[:,'AUTO/ PED':'zSTALLED VEHICLE'] = Incidents.loc[:,'AUTO/ PED':'zSTALLED VEHICLE'].fillna(0)
     
-    '''#create FATAL/INJURY_ACC column and drop the smaller categories
-    Incidents['FATAL/INJURY_ACC'] = Incidents['FLEET ACC/ FATAL'] + Incidents['TRAFFIC FATALITY']
-    Incidents['COLLISION WITH INJURY'] + Incidents['Crash Urgent'] + Incidents['FLEET ACC/ INJURY']
-    Incidents.drop(['FLEET ACC/ FATAL', 'TRAFFIC FATALITY', 'COLLISION WITH INJURY', 
-                    'Crash Urgent', 'FLEET ACC/ INJURY'], axis=1, inplace=True)
-    
-    #create COLLISION_ACC column and drop the smaller categories
-    Incidents['COLLISION_ACC'] = Incidents['COLLISION'] + Incidents['COLLISION/PRIVATE PROPERTY'] 
-    + Incidents['COLLISN / FTSRA'] + Incidents['COLLISN/ LVNG SCN'] + Incidents['AUTO/ PED']
-    Incidents.drop(['COLLISION', 'COLLISION/PRIVATE PROPERTY', 'COLLISN / FTSRA',
-                    'COLLISN/ LVNG SCN', 'AUTO/ PED'], axis=1, inplace=True)
-    
-    #create OTHER_ACC column and drop the smaller categories
-    Incidents['OTHER_ACC'] = Incidents['BOAT ACCIDENT'] + Incidents['LOOSE LIVESTOCK'] 
-    + Incidents['N / HZRD TRFC VIOL'] + Incidents['HIGH WATER'] + Incidents['ICY ROADWAY']
-    Incidents.drop(['BOAT ACCIDENT', 'LOOSE LIVESTOCK', 'N / HZRD TRFC VIOL',
-                    'HIGH WATER', 'ICY ROADWAY'],axis=1, inplace=True)
-    
-    #create CAR/TRAFFIC_ACC column and drop the smaller categories
-    Incidents['CAR/TRAFFIC_ACC'] = Incidents['TRFC HAZD/ DEBRIS'] + Incidents['VEHICLE FIRE'] 
-    + Incidents['Crash Service'] + Incidents['Traffic Hazard'] + Incidents['Traffic Impediment'] 
-    + Incidents['zSTALLED VEHICLE'] + Incidents['BLOCKED DRIV/ HWY']
-    Incidents.drop(['TRFC HAZD/ DEBRIS', 'VEHICLE FIRE', 'Crash Service', 'Traffic Hazard', 'Traffic Impediment','zSTALLED VEHICLE', 'BLOCKED DRIV/ HWY'], axis=1, inplace=True)
-    '''
+
     #get rid of name='Issue Reported'
     Incidents = Incidents.rename_axis(None, axis=1).reset_index()
     Incidents['zipcode'] = Incidents['zipcode'].astype(int)
