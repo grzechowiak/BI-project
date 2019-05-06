@@ -31,7 +31,11 @@ def main():
 # available to download easily by link so it has to be loaded by hand.
     print('##########################################################')    
     print(' ')   
-    print('There are some warnings. No need to worry about them! :)')    
+    print('There are some warnings. No need to worry about them! :)')
+    print('### ############ ###') 
+    print('### INSTRUCTIONS ###') 
+    print('### ############ ###') 
+    print('The code needs following libraries to be installed: pandas, geopandas, shapely and rtree')
     print('You are asked for two paths to input and the whole process will start.')
     print('(1):The first path you need to localize the folder with the file called: zips.shp')
     print('Example would be: C:\\Users\\users_name\\BI_Project\\files\\Zipcodes')   
