@@ -4657,8 +4657,8 @@
         </view>
         <style>
           <style-rule element='axis'>
-            <encoding attr='space' class='0' field='[federated.0ekgx8814w6c43179pvxx04ics8a (copy 5)].[Longitude (generated)]' field-type='quantitative' max='-10799715.166344212' min='-10931708.855874011' projection='EPSG:3857' range-type='fixed' scope='cols' type='space' />
-            <encoding attr='space' class='0' field='[federated.0ekgx8814w6c43179pvxx04ics8a (copy 5)].[Latitude (generated)]' field-type='quantitative' max='3583390.2092475682' min='3504740.184405955' projection='EPSG:3857' range-type='fixed' scope='rows' type='space' />
+            <encoding attr='space' class='0' field='[federated.0ekgx8814w6c43179pvxx04ics8a (copy 5)].[Longitude (generated)]' field-type='quantitative' max='-10765140.128358737' min='-11028466.577541634' projection='EPSG:3857' range-type='fixed' scope='cols' type='space' />
+            <encoding attr='space' class='0' field='[federated.0ekgx8814w6c43179pvxx04ics8a (copy 5)].[Latitude (generated)]' field-type='quantitative' max='3618811.3356074211' min='3461905.0927839554' projection='EPSG:3857' range-type='fixed' scope='rows' type='space' />
           </style-rule>
           <style-rule element='mark'>
             <encoding attr='color' field='[federated.0ekgx8814w6c43179pvxx04ics8a (copy 5)].[sum:Calculation_390687322902933509:qk]' num-steps='40' type='interpolated' />
@@ -4980,8 +4980,11 @@
           <aggregation value='true' />
         </view>
         <style>
+          <style-rule element='axis'>
+            <format attr='height' field='[federated.0ekgx8814w6c43179pvxx04ics8a (copy 5)].[Multiple Values]' value='28' />
+          </style-rule>
           <style-rule element='cell'>
-            <format attr='height' field='[federated.0ekgx8814w6c43179pvxx04ics8a (copy 5)].[:Measure Names]' value='26' />
+            <format attr='height' field='[federated.0ekgx8814w6c43179pvxx04ics8a (copy 5)].[:Measure Names]' value='24' />
           </style-rule>
           <style-rule element='header'>
             <format attr='width' field='[federated.0ekgx8814w6c43179pvxx04ics8a (copy 5)].[:Measure Names]' value='332' />
@@ -5043,9 +5046,9 @@
         </view>
         <style>
           <style-rule element='axis'>
-            <encoding attr='space' class='1' field='[federated.0ekgx8814w6c43179pvxx04ics8a (copy)].[Latitude (generated)]' field-type='quantitative' fold='true' max='3635558.8694873741' min='3462537.6193291699' projection='EPSG:3857' range-type='fixed' scope='rows' type='space' />
-            <encoding attr='space' class='0' field='[federated.0ekgx8814w6c43179pvxx04ics8a (copy)].[Longitude (generated)]' field-type='quantitative' max='-10615602.979023322' min='-11049185.992812639' projection='EPSG:3857' range-type='fixed' scope='cols' type='space' />
-            <encoding attr='space' class='0' field='[federated.0ekgx8814w6c43179pvxx04ics8a (copy)].[Latitude (generated)]' field-type='quantitative' max='3635558.8694873741' min='3462537.6193291699' projection='EPSG:3857' range-type='fixed' scope='rows' type='space' />
+            <encoding attr='space' class='1' field='[federated.0ekgx8814w6c43179pvxx04ics8a (copy)].[Latitude (generated)]' field-type='quantitative' fold='true' projection='EPSG:3857' scope='rows' type='space' />
+            <encoding attr='space' class='0' field='[federated.0ekgx8814w6c43179pvxx04ics8a (copy)].[Longitude (generated)]' field-type='quantitative' max='-10689232.479233446' min='-11104374.226666925' projection='EPSG:3857' range-type='fixed' scope='cols' type='space' />
+            <encoding attr='space' class='0' field='[federated.0ekgx8814w6c43179pvxx04ics8a (copy)].[Latitude (generated)]' field-type='quantitative' max='3624900.1013032352' min='3455816.3270881413' projection='EPSG:3857' range-type='fixed' scope='rows' type='space' />
           </style-rule>
           <style-rule element='mark'>
             <encoding attr='size' field='[federated.0ekgx8814w6c43179pvxx04ics8a (copy)].[sum:Hispanic or Latino, of any race:qk]' field-type='quantitative' max-size='1' min='10.0' min-size='0' type='quantsize' />
@@ -5196,8 +5199,8 @@
         </view>
         <style>
           <style-rule element='axis'>
-            <encoding attr='space' class='0' field='[federated.0ekgx8814w6c43179pvxx04ics8a (copy 4)].[Longitude (generated)]' field-type='quantitative' max='-10712173.556896709' min='-11149294.471911749' projection='EPSG:3857' range-type='fixed' scope='cols' type='space' />
-            <encoding attr='space' class='0' field='[federated.0ekgx8814w6c43179pvxx04ics8a (copy 4)].[Latitude (generated)]' field-type='quantitative' max='3623526.8684205622' min='3427079.5866138032' projection='EPSG:3857' range-type='fixed' scope='rows' type='space' />
+            <encoding attr='space' class='0' field='[federated.0ekgx8814w6c43179pvxx04ics8a (copy 4)].[Longitude (generated)]' field-type='quantitative' max='-10592889.728488324' min='-11200716.977412047' projection='EPSG:3857' range-type='fixed' scope='cols' type='space' />
+            <encoding attr='space' class='0' field='[federated.0ekgx8814w6c43179pvxx04ics8a (copy 4)].[Latitude (generated)]' field-type='quantitative' max='3629025.1670064926' min='3451691.2613848839' projection='EPSG:3857' range-type='fixed' scope='rows' type='space' />
           </style-rule>
           <style-rule element='mark'>
             <encoding attr='color' field='[federated.0ekgx8814w6c43179pvxx04ics8a (copy 4)].[sum:Calculation_390687322902933509:qk]' min='0' num-steps='52' type='interpolated' />
@@ -5288,12 +5291,24 @@
             <column-instance column='[Calculation_147774417966723072]' derivation='User' name='[usr:Calculation_147774417966723072:nk]' pivot='key' type='nominal' />
             <column caption='Zipcode' datatype='integer' default-format='*00000' name='[zipcode]' role='dimension' semantic-role='[ZipCode].[Name]' type='ordinal' />
           </datasource-dependencies>
+          <manual-sort column='[federated.0ekgx8814w6c43179pvxx04ics8a (copy 2)].[usr:Calculation_147774417966723072:nk]' direction='ASC'>
+            <dictionary>
+              <bucket>&quot;0&quot;</bucket>
+              <bucket>&quot;Below 25000&quot;</bucket>
+              <bucket>&quot;Between 25000 - 100000&quot;</bucket>
+              <bucket>&quot;Between 100001-120000&quot;</bucket>
+              <bucket>&quot;Between 120001-400000&quot;</bucket>
+              <bucket>&quot;Between 500000-700000&quot;</bucket>
+              <bucket>&quot;The Higest: 1981024&quot;</bucket>
+              <bucket>%all%</bucket>
+            </dictionary>
+          </manual-sort>
           <aggregation value='true' />
         </view>
         <style>
           <style-rule element='axis'>
-            <encoding attr='space' class='0' field='[federated.0ekgx8814w6c43179pvxx04ics8a (copy 2)].[Longitude (generated)]' field-type='quantitative' max='-10641133.562340736' min='-11152473.143559635' projection='EPSG:3857' range-type='fixed' scope='cols' type='space' />
-            <encoding attr='space' class='0' field='[federated.0ekgx8814w6c43179pvxx04ics8a (copy 2)].[Latitude (generated)]' field-type='quantitative' max='3617857.3148738798' min='3462859.1135174967' projection='EPSG:3857' range-type='fixed' scope='rows' type='space' />
+            <encoding attr='space' class='0' field='[federated.0ekgx8814w6c43179pvxx04ics8a (copy 2)].[Longitude (generated)]' field-type='quantitative' max='-10472119.223797746' min='-11321487.482102625' projection='EPSG:3857' range-type='fixed' scope='cols' type='space' />
+            <encoding attr='space' class='0' field='[federated.0ekgx8814w6c43179pvxx04ics8a (copy 2)].[Latitude (generated)]' field-type='quantitative' max='3629025.1670064926' min='3451691.2613848839' projection='EPSG:3857' range-type='fixed' scope='rows' type='space' />
           </style-rule>
           <style-rule element='legend'>
             <format attr='border-style' value='solid' />
@@ -5481,7 +5496,7 @@
       <size maxheight='1154' maxwidth='1869' minheight='1154' minwidth='1869' preset-index='13' sizing-mode='fixed' />
       <zones>
         <zone h='100000' id='22' type='layout-basic' w='100000' x='0' y='0'>
-          <zone h='60975' id='37' param='vert' type='layout-flow' w='99144' x='428' y='693'>
+          <zone h='68978' id='37' param='vert' type='layout-flow' w='99144' x='428' y='693'>
             <zone fixed-size='40' h='4159' id='38' is-fixed='true' type='title' w='99144' x='428' y='693'>
               <zone-style>
                 <format attr='border-color' value='#000000' />
@@ -5490,11 +5505,11 @@
                 <format attr='margin' value='4' />
               </zone-style>
             </zone>
-            <zone h='56816' id='107' type='layout-basic' w='99144' x='428' y='4852'>
-              <zone h='56816' id='31' param='horz' type='layout-flow' w='53612' x='428' y='4852'>
-                <zone h='56816' id='23' param='vert' type='layout-flow' w='53612' x='428' y='4852'>
-                  <zone h='56816' id='24' type='layout-basic' w='53612' x='428' y='4852'>
-                    <zone h='30590' id='29' name='Number of Alcohol sold by Zipcode' w='53612' x='428' y='4852'>
+            <zone h='64819' id='107' type='layout-basic' w='99144' x='428' y='4852'>
+              <zone h='64819' id='31' param='horz' type='layout-flow' w='47298' x='428' y='4852'>
+                <zone h='64819' id='23' param='vert' type='layout-flow' w='47298' x='428' y='4852'>
+                  <zone h='64819' id='24' type='layout-basic' w='47298' x='428' y='4852'>
+                    <zone h='32410' id='39' name='Auto Accidents' w='47298' x='428' y='37261'>
                       <zone-style>
                         <format attr='border-color' value='#000000' />
                         <format attr='border-style' value='none' />
@@ -5502,8 +5517,7 @@
                         <format attr='margin' value='4' />
                       </zone-style>
                     </zone>
-                    <zone fixed-size='307' h='26226' id='101' is-fixed='true' name='Type of Alcohol Sold' w='53612' x='428' y='35442'>
-                      <layout-cache cell-count-w='3' minheight='185' non-cell-size-w='75' type-h='scalable' type-w='cell' />
+                    <zone h='32409' id='102' name='Number of Accidents by ZipCode' w='47298' x='428' y='4852'>
                       <zone-style>
                         <format attr='border-color' value='#000000' />
                         <format attr='border-style' value='none' />
@@ -5514,10 +5528,10 @@
                   </zone>
                 </zone>
               </zone>
-              <zone h='56816' id='108' param='horz' type='layout-flow' w='45532' x='54040' y='4852'>
-                <zone fixed-size='953' h='56816' id='111' is-fixed='true' type='layout-basic' w='45532' x='54040' y='4852'>
-                  <zone h='33623' id='30' param='vert' type='layout-flow' w='45532' x='54040' y='4852'>
-                    <zone h='33623' id='33' name='Income vs. Hispanic and Latino' w='45532' x='54040' y='4852'>
+              <zone h='64819' id='108' param='horz' type='layout-flow' w='51846' x='47726' y='4852'>
+                <zone fixed-size='953' h='64819' id='111' is-fixed='true' type='layout-basic' w='51846' x='47726' y='4852'>
+                  <zone h='38352' id='30' param='vert' type='layout-flow' w='51846' x='47726' y='4852'>
+                    <zone h='38352' id='33' name='Income vs. Hispanic and Latino' w='51846' x='47726' y='4852'>
                       <layout-cache minheight='244' minwidth='202' type-h='scalable' type-w='scalable' />
                       <zone-style>
                         <format attr='border-color' value='#000000' />
@@ -5527,8 +5541,8 @@
                       </zone-style>
                     </zone>
                   </zone>
-                  <zone h='23193' id='112' param='vert' type='layout-flow' w='45532' x='54040' y='38475'>
-                    <zone fixed-size='258' h='23050' id='106' is-fixed='true' name='Housing Affordability' w='45532' x='54040' y='38475'>
+                  <zone h='26467' id='112' param='vert' type='layout-flow' w='51846' x='47726' y='43204'>
+                    <zone fixed-size='318' h='26467' id='106' is-fixed='true' name='Housing Affordability' w='51846' x='47726' y='43204'>
                       <layout-cache type-h='fixed' type-w='fixed' />
                       <zone-style>
                         <format attr='border-color' value='#000000' />
@@ -5542,7 +5556,8 @@
               </zone>
             </zone>
           </zone>
-          <zone h='37639' id='39' name='Auto Accidents' w='53166' x='46406' y='61668'>
+          <zone fixed-size='307' h='29636' id='101' is-fixed='true' name='Type of Alcohol Sold' w='24345' x='75227' y='69671'>
+            <layout-cache cell-count-w='3' minheight='185' non-cell-size-w='75' type-h='scalable' type-w='cell' />
             <zone-style>
               <format attr='border-color' value='#000000' />
               <format attr='border-style' value='none' />
@@ -5550,7 +5565,7 @@
               <format attr='margin' value='4' />
             </zone-style>
           </zone>
-          <zone h='37639' id='102' name='Number of Accidents by ZipCode' w='45978' x='428' y='61668'>
+          <zone h='29636' id='29' name='Number of Alcohol sold by Zipcode' w='74799' x='428' y='69671'>
             <zone-style>
               <format attr='border-color' value='#000000' />
               <format attr='border-style' value='none' />
@@ -5567,8 +5582,8 @@
         </zone>
         <zone fixed-size='80' h='5026' id='34' is-fixed='true' name='Income vs. Hispanic and Latino' pane-specification-id='1' param='[federated.0ekgx8814w6c43179pvxx04ics8a (copy)].[sum:Median household income:qk]' type='color' w='12039' x='87212' y='19757' />
         <zone h='12825' id='35' name='Income vs. Hispanic and Latino' pane-specification-id='2' param='[federated.0ekgx8814w6c43179pvxx04ics8a (copy)].[sum:Hispanic or Latino, of any race:qk]' type='size' w='12146' x='87212' y='24957' />
-        <zone h='14818' id='32' name='Number of Alcohol sold by Zipcode' pane-specification-id='0' param='[federated.0ekgx8814w6c43179pvxx04ics8a (copy 2)].[usr:Calculation_147774417966723072:nk]' type='color' w='9631' x='43927' y='20017' />
-        <zone h='4593' id='103' name='Number of Accidents by ZipCode' pane-specification-id='3' param='[federated.0ekgx8814w6c43179pvxx04ics8a (copy 4)].[sum:Calculation_390687322902933509:qk]' single-line='true' type='color' w='11022' x='34831' y='93761' />
+        <zone h='14818' id='32' name='Number of Alcohol sold by Zipcode' pane-specification-id='0' param='[federated.0ekgx8814w6c43179pvxx04ics8a (copy 2)].[usr:Calculation_147774417966723072:nk]' type='color' w='9631' x='65169' y='84055' />
+        <zone h='4593' id='103' name='Number of Accidents by ZipCode' pane-specification-id='3' param='[federated.0ekgx8814w6c43179pvxx04ics8a (copy 4)].[sum:Calculation_390687322902933509:qk]' single-line='true' type='color' w='11022' x='36383' y='32149' />
       </zones>
       <devicelayouts>
         <devicelayout auto-generated='true' name='Phone'>
@@ -5699,7 +5714,7 @@
       <simple-id uuid='{01B9CD77-3CE6-4A44-BF47-916B938D645C}' />
     </dashboard>
   </dashboards>
-  <windows saved-dpi-scale-factor='0.833333' source-height='114'>
+  <windows source-height='114'>
     <window class='worksheet' name='Number of Alcohol sold by Zipcode'>
       <cards>
         <edge name='left'>
@@ -5937,7 +5952,7 @@
           <zoom type='entire-view' />
         </viewpoint>
       </viewpoints>
-      <active id='106' />
+      <active id='102' />
       <simple-id uuid='{E0C866F4-B657-4CD0-B89B-4894863E8601}' />
     </window>
   </windows>
