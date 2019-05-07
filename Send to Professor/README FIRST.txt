@@ -23,5 +23,7 @@ Mixed Beverage Gross Reciepts.
 4. Final data sets
 - the final output of the function (merged data) is in folder 'Final Data'
 
+5. The whole project can be also find here: https://github.com/mikaelapisani/BI-project
+
 
 We hope you enjoy reading the project! :)
