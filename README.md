@@ -2,10 +2,7 @@
 
 <br/>
 
-The complete Report and code: [github](https://github.com/grzechowiak/Business-Intelligence-Project)
-<br/>
-The short version: [github](https://grzechowiak.github.io/posts/)
-<br/>
+
 
 ## Intro
 
@@ -25,11 +22,9 @@ In order to merge mentioned above datasets, the common column, zip-codes were us
 <br/>
 
 ## Project Flow Chart
-![The Structure of the Project](/img/ProjectFlowChart.png)
+![The Structure of the Project](/simg/ProjectFlowChart.png)
 
 
-## Tebleau Visualizations
-Dasboard available here: [Tableau Public website.](https://public.tableau.com/profile/grzechowiak#!/vizhome/Austin-BusinessIntelligenceProject/AustinTX)
 
 
 ## Libraries
@@ -38,4 +33,4 @@ pandas, numpy, geopandas, shapely, rtree
 
 
 ## Authors
-The project was made by: Marcin Grzechowiak, Mikaela Pisani and ROger Valdez
+The project was made by: Marcin Grzechowiak, Mikaela Pisani and Roger Valdez
