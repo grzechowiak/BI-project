@@ -36,7 +36,3 @@ Dasboard available here: [Tableau Public website.](https://public.tableau.com/pr
 ## Libraries
 In the project following libraries were used:
 pandas, numpy, geopandas, shapely, rtree
-
-
-## Authors
-The project was made by: Marcin Grzechowiak, Mikaela Pisani and Roger Valdez
